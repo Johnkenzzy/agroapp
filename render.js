@@ -20,7 +20,7 @@ export function render () {
               <option class="dropdown-content" value="acre">acre</option>
             </select>
           </div>
-          <input type="submit" class="submit-btn" id="area-cal-btn" value="RUN" readonly></input>
+          <input type="submit" class="submit-btn" id="area-cal-btn" value="RUN"></input>
         </form>
       </div>
       <div class="output-container" id="land-area-output">

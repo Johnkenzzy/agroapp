@@ -29,11 +29,27 @@ body {
   position: relative;
 }
 
+@keyframes switch {
+  from {background-color: $primary-color;}
+  to {background-color: #ffffff;}
+}
+
+/* The element to apply the animation to */
+
 .input-output-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  background-color: $primary-color;
+  border-radius: 15px;
+  margin-top: 20px;
+  animation-name: switch;
+  animation-duration: 8s;
+  animation-delay: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1);
+  // transition: background-color 3s ease-in-out;
 }
 
 .input-container {
@@ -51,6 +67,9 @@ body {
   margin: 10px auto;
   color: $primary-color;
   text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
   // margin: 0px auto;
 }
 
@@ -60,6 +79,10 @@ body {
   width: 100%;
 }
 
+@keyframes steady {
+  100% {background-color: #f2f2f2;}
+}
+
 .input-section{
   box-sizing: border-box;
   margin: 25px 0;
@@ -67,6 +90,10 @@ body {
   background-color: #f2f2f2;
   border-radius: 15px;
   width: 100%;
+  animation-name: steady;
+  animation-duration: 8s;
+  animation-delay: 4s;
+  animation-iteration-count: infinite;
 }
 
 .input, .dropdown {
@@ -113,7 +140,7 @@ body {
 
 .line {
   display: inline-block;
-  width: 40%;
+  width: 50%;
   border-top: 10px groove $primary-color;
   border-radius: 5px;
 }
@@ -123,7 +150,8 @@ body {
   vertical-align: middle;
   color: $font-color;
   margin: auto 5px;
-  width: 20%;
+  width: fit-content;
+  min-width: fit-content;
   font-size: 1em;
   text-align: center;
   font-weight: bold;
@@ -134,6 +162,11 @@ legend {
   margin-bottom: 5px;
 }
 
+@keyframes switch-btn {
+  from {background-color: #ffffff; color: $primary-color;}
+  to {background-color: $primary-color; color: #ffffff}
+}
+
 /****.submit-btns****/
 .submit-btn {
   border-radius: 8px;
@@ -141,9 +174,15 @@ legend {
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  background-color: $primary-color;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: $primary-color;
   cursor: pointer;
+  border: none;
+  outline: none;
+  animation-name: switch-btn;
+  animation-duration: 8s;
+  animation-delay: 4s;
+  animation-iteration-count: infinite;
   transition: border-color 0.25s;
 }
 
@@ -153,5 +192,5 @@ legend {
 
 .submit-btn:focus,
 .submit-btn:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: none;
 }

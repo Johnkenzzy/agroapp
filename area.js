@@ -18,8 +18,8 @@ function calculateLandArea(length, width, unit) {
 
 export function displayLandArea() {
     // Define conversion factors for different units (in square meters)
-   const length = document.querySelector('#length').value;
-   const width = document.querySelector('#width').value;
+   const length = document.getElementById('#length').value;
+   const width = document.getElementById('#width').value;
    const unit = document.getElementById('entry-dropdown').value;
     
     console.log(length + "," + width + ", " + unit);
@@ -27,7 +27,7 @@ export function displayLandArea() {
    const area = calculateLandArea(length, width, unit)
 
     const outputText = `The area of the land is ${area} ${unit}`
-    const output = document.querySelector('#output');
+    const output = document.getElementById('#output');
     output.innerText = outputText;
 
     return output;
