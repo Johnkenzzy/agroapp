@@ -9,16 +9,16 @@ export function render () {
       <div class="input-container" id="land-area-input-container">
         <div name="form" class="form" id="land-area-calcuator">
           <div class="form-input-section" id="land-area-input">
-            <legend class="input-tag">Length</legend>
+            <legend class="input-tag" id="lengthLabel">Length</legend>
             <input class="input" type="number" name="length" id="length" pattern="[0-9]" min="0" autofocus required />
-            <legend>Width</legend>
+            <legend id="widthLabel">Width</legend>
             <input class="input" type="number" name="width" id="width" pattern="[0-9]" min="0" required />
             <legend>Area</legend>
             <input class="input" type="number" name="area" id="area" pattern="[0-9]" min="0" readonly />
             <legend>select unit of input parameters</legend>
             <select class="dropdown" id="parameter-unit">
-              <option class="dropdown-content" value="">select</option>
-              <option class="dropdown-content" value="millimeter square">millimeters</option>
+              <option class="dropdown-content darkbg" value="">select</option>
+              <option class="dropdown-content whitebg" value="millimeter square">millimeters</option>
               <option class="dropdown-content" value="centimeter square">centimeters</option>
               <option class="dropdown-content" value="square feet">feet</option>
               <option class="dropdown-content" value="square meter">meters</option>
@@ -35,14 +35,10 @@ export function render () {
               <option class="dropdown-content" value="cm - m">centimeter - meter</option>
               <option class="dropdown-content" value="m - cm">meter - centimeter</option>
             </select>
-            <legend>select output unit</legend>
-            <select class="dropdown" id="futher-unit-conversion">
-              <option class="dropdown-content" value="">select</option>
-              <option class="dropdown-content" value="square meter">square meter</option>
-              <option class="dropdown-content" value="square feet">square feet</option>
-              <option class="dropdown-content" value="hectare">hectare</option>
-              <option class="dropdown-content" value="acre">acre</option>
-              <option class="dropdown-content" value="yard">yard</option>
+            <legend>select the shape of the land</legend>
+            <select class="dropdown" id="land-shape">
+              <option class="dropdown-content" value="sq/rect">square / rectangular</option>
+              <option class="dropdown-content" value="triangle">triangular</option>
             </select>
           </div>
           <input type="submit" class="submit-btn" id="btn" value="RUN" />

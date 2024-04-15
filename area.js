@@ -4,19 +4,28 @@ export function displayLandArea() {
     // Variables initialization
     const length = document.getElementById('length').value;
     const width = document.getElementById('width').value;
-    const calculatedArea = document.getElementById('area');
+    let calculatedArea = document.getElementById('area');
     let paraUnit = document.getElementById('parameter-unit').value;
     const conversion = document.getElementById('unit-conversion').value;
-    const  futherConversion = document.getElementById('futher-unit-conversion');    
+    const  shape = document.getElementById('land-shape').value;    
+
+    let area;
 
     console.log(length + "," + width + ", " + paraUnit);
     //Ensure parameters input boxes are not empty
     if (length === "" || width === "") {
-        alert("Enter valid parameters");
         // calculatedArea = "";
+        paraUnit = "";
+        area = 0;
+        alert("Enter valid parameters");
+    }else {
+        // Area calculation formular
+       if (shape === "sq/rect") {
+        area = length * width;
+       } if (shape === "triangle") {
+            area = 0.5 * width * length;
+       }
     }
-    // Area calculation formular
-    let area = length * width;
 
     //Units convertion
     if (paraUnit === "millimeter square" && conversion === "mm - cm") {
@@ -59,8 +68,6 @@ export function displayLandArea() {
     return output;
 
 }
-
- 
 
 /******
  switch (area) {
