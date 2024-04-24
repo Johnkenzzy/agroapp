@@ -6,7 +6,7 @@ export function render () {
       <span class="line"></span><span class="label" id="land-area">Land Area Calculator</span><span class="line"></span>
     </div>
     <div class="input-output-container">
-      <div class="input-container" id="land-area-input-container">
+      <main class="input-container land-area" id="land-area-input-container">
         <div name="form" class="form" id="land-area-calcuator">
           <div class="form-input-section" id="land-area-input">
             <legend class="input-tag" id="lengthLabel">Length</legend>
@@ -41,9 +41,9 @@ export function render () {
               <option class="dropdown-content" value="triangle">triangular</option>
             </select>
           </div>
-          <input type="submit" class="submit-btn" id="btn" value="RUN" />
+          <input type="submit" class="submit-btn" id="btn1" value="RUN" />
         </div>
-      </div>
+      </main>
       <div class="output-container" id="land-area-output">
         <p class="output" id="output">HERE GOES THE OUTPUT!</p>
       </div>

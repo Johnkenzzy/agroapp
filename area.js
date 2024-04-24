@@ -1,10 +1,27 @@
 
+function zeroPad(number, length) {
+    // Convert the number to a string
+    var str = number.toString();
+  
+    // Calculate the number of zeros to add
+    var zerosToAdd = length - str.length;
+  
+    // Add zeros to the beginning of the string
+    for (var i = 0; i < zerosToAdd; i++) {
+      str = '0' + str;
+    }
+  
+    // Return the zero-padded string
+    return str;
+  }
+  
+
 
 export function displayLandArea() {
     // Variables initialization
     const length = document.getElementById('length').value;
     const width = document.getElementById('width').value;
-    let calculatedArea = document.getElementById('area');
+    const calculatedArea = document.getElementById('area');
     let paraUnit = document.getElementById('parameter-unit').value;
     const conversion = document.getElementById('unit-conversion').value;
     const  shape = document.getElementById('land-shape').value;    
@@ -17,7 +34,8 @@ export function displayLandArea() {
         // calculatedArea = "";
         paraUnit = "";
         area = 0;
-        alert("Enter valid parameters");
+        const popMessage = "Enter valid parameters";
+        alert(popMessage.toUpperCase());
     }else {
         // Area calculation formular
        if (shape === "sq/rect") {
@@ -60,12 +78,12 @@ export function displayLandArea() {
      console.log(area + ", " + paraUnit + "," + conversion)
     
      //UI outputs
-    const outputText = `The area of the land is ${area} ${paraUnit}`
+    const outputText = `The area of the land is:\n\n ${zeroPad(area, 2)} ${paraUnit} `
     const output = document.getElementById('output');
     output.innerText = outputText;
     calculatedArea.value = area;
 
-    return output;
+    return area;
 
 }
 
