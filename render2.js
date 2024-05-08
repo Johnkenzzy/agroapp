@@ -14,8 +14,8 @@ export function render2 () {
             <input class="input" type="number" name="length" id="length" pattern="[0-9]" min="0" autofocus required />
             <legend id="widthLabel">Width</legend>
             <input class="input" type="number" name="width" id="width" pattern="[0-9]" min="0" required />
-            <legend id="areaLabel">Area</legend>
-            <input class="input" type="number" name="area" id="area" pattern="[0-9]" min="0" />
+            <legend id="heightLabel">Height</legend>
+            <input class="input" type="number" name="height" id="height" pattern="[0-9]" min="0" />
             <legend id="volumeLabel">Volume</legend>
             <input class="input" type="number" name="volume" id="volume" pattern="[0-9]" min="0" readonly />
             <legend>select unit of input parameters</legend>
@@ -44,7 +44,7 @@ export function render2 () {
               <option class="dropdown-content" value="triangle">triangular</option>
             </select>
           </div>
-          <input type="submit" class="submit-btn" id="btn2" value="RUN" />
+          <button class="submit-btn" id="btn2">RUN</button>
         </div>
       </main>
       <div class="output-container" id="soil-volume-output">

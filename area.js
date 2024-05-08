@@ -1,5 +1,5 @@
 
-function zeroPad(number, length) {
+export function zeroPad(number, length) {
     // Convert the number to a string
     var str = number.toString();
   
