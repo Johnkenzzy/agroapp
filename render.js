@@ -40,8 +40,8 @@ export function render () {
               <option class="dropdown-content" value="sq/rect">square / rectangular</option>
               <option class="dropdown-content" value="triangle">triangular</option>
             </select>
-          </div>
-          <input type="submit" class="submit-btn" id="btn1" value="RUN" />
+          </div id=btn-container>
+            <button class="submit-btn" id="btn">RUN</button>
         </div>
       </main>
       <div class="output-container" id="land-area-output">

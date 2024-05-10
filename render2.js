@@ -44,7 +44,7 @@ export function render2 () {
               <option class="dropdown-content" value="triangle">triangular</option>
             </select>
           </div>
-          <button class="submit-btn" id="btn2">RUN</button>
+          <button class="submit-btn" id="btn">RUN</button>
         </div>
       </main>
       <div class="output-container" id="soil-volume-output">

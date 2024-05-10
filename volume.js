@@ -1,7 +1,3 @@
-
-
- 
- 
  export function displaySoilVolume() {
      // Variables initialization
      const length = document.getElementById('length').value;
