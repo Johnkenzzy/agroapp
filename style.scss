@@ -7,7 +7,7 @@ $font-type: Berlow, sans-serif, serif, monospace;
 body {
   box-sizing: content-box;
   margin: 0;
-  padding: o;
+  padding: 0;
   height: fit-content;
   width: 100%;
   font-family: $font-type;
@@ -15,12 +15,21 @@ body {
 
 header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   text-align: center;
+  width: 100vw;
   padding: 10px;
   background-color: #f2f2f2;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+#header-text {
+  margin: 0 auto 0 0;
+  font-size: 90%;
 }
 
 #app {
@@ -30,126 +39,18 @@ header {
   height: fit-content;
   margin: 10px auto;
   padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  top: 100px;
 }
 .container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
   margin: 20px 0;
   padding: 4px;
-  display: flex;
-  flex-direction: column;
-  // position: relative;
-}
-
-@keyframes switch {
-  from {background-color: $primary-color;}
-  to {background-color: #ffffff;}
-}
-
-/* The element to apply the animation to */
-
-.input-output-container {
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: $primary-color;
-  border-radius: 15px;
-  margin-top: 20px;
-  padding: 10px;
-  box-sizing: border-box;
-  // animation-name: switch;
-  animation-duration: 8s;
-  animation-delay: 4s;
-  animation-iteration-count: infinite;
-  animation-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1);
-  // transition: background-color 3s ease-in-out;
-}
-
-.input-container {
-  // position: relative;
-  display: flex;
-  padding: 20px;
-  width: 60%;
-  // margin: 0px auto 0px 5px;
-}
-
-.output-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 10px auto;
-  color: $primary-color;
-  text-align: center;
-  background-color: #ffffff;
-  padding: 10px;
-  border-radius: 10px;
-  box-sizing: border-box;
-  // margin: 0px auto;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-@keyframes steady {
-  100% {background-color: #f2f2f2;}
-}
-
-.form-input-section{
-  box-sizing: border-box;
-  margin: 25px 0;
-  padding: 20px;
-  background-color: #f2f2f2;
-  border-radius: 15px;
-  width: 100%;
-  // animation-name: steady;
-  animation-duration: 8s;
-  animation-delay: 4s;
-  animation-iteration-count: infinite;
-}
-
-.input, .dropdown {
-  margin-bottom: 30px;
-  padding: 12px 2px;
-  border-radius: 5px;
-  width: fit-content;
-  // box-sizing: border-box;
-  border: none;
-  border-bottom: 2px solid $primary-color;
-  outline: none;
-  box-shadow: 0px 8px 16px 0px rgba(21, 19, 19, 0.2);
-}
-
-
-.input:focus, .dropdown:focus {
-  border: 2px solid $primary-color;
-}
-
-.darkbg {
-  background-color: $font-color;
-  color: #ffffff;
-}
-
-.whitebg {
-  background-color: #ffffff;
-  color: $font-color;
-}
-
-.dropdown-content {
-  display: flex;
-  position: relative;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  border-bottom: 2px solid $primary-color;
-  z-index: 1;
-}
-
-.dropdown:hover, .dropdown-content {
-  display: block;
+  position: absolute;
 }
 
 .title {
@@ -180,7 +81,111 @@ header {
 }
 
 legend {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+}
+
+@keyframes switch {
+  from {background-color: $primary-color;}
+  to {background-color: #ffffff;}
+}
+
+/* The element to apply the animation to */
+
+.input-output-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 20px;
+  width: 100%;
+  background-color: $primary-color;
+  border-radius: 15px;
+  margin-top: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  // animation-name: switch;
+  animation-duration: 8s;
+  animation-delay: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1);
+  // transition: background-color 3s ease-in-out;
+}
+
+@media screen {
+  //resize input-output-containter for smaller screen
+}
+
+.input-container {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 50%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@keyframes steady {
+  100% {background-color: #f2f2f2;}
+}
+
+.form-input-section {
+  box-sizing: border-box;
+  margin: 25px 0;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 15px;
+  width: 100%;
+  // animation-name: steady;
+  animation-duration: 8s;
+  animation-delay: 4s;
+  animation-iteration-count: infinite;
+}
+
+.input, .dropdown {
+  margin-bottom: 30px;
+  padding: 12px 2px;
+  border-radius: 5px;
+  width: 70%;
+  font-size: 16px;
+  // box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid $primary-color;
+  outline: none;
+  box-shadow: 0px 8px 16px 0px rgba(21, 19, 19, 0.2);
+}
+
+.darkbg {
+  background-color: $font-color;
+  color: #ffffff;
+}
+
+.whitebg {
+  background-color: #ffffff;
+  color: $font-color;
+}
+
+
+.output-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $font-color;
+  font-size: 20px;
+  font-weight: bolder;
+  height: fit-content;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 10px;
+  margin: auto;
+  border-radius: 10px;
+  box-sizing: border-box;
 }
 
 @keyframes switch-btn {

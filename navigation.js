@@ -1,7 +1,9 @@
 export function headerNavigation() {
       const textContent = `
       <header>
-            <h1>AGRO CALCULATOR APP</h1>
+            <div id="header-text">
+                  <h1>AGRO CALCULATOR APP</h1>
+            </div>
             <div class="Navdropdown">
                   <button class="dropbtn" id="nav-as">Choose an operation</button>
                   <div class="Navdropdown-content">

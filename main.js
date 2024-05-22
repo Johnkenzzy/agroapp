@@ -1,18 +1,18 @@
 import './style.scss';
 import './nav.scss';
 import 'animate.css';
-import { render } from './render.js';
 import { headerNavigation } from './navigation.js';
 import { displayLandArea } from './area.js';
-import { render2 } from './render2.js';
+import { calculateLandArea } from './area.js';
 import { displaySoilVolume } from './volume.js';
-import { setupCounter } from './counter.js';
+import { calculateSoilVolume } from './volume.js';
+
 
 const body = document.querySelector('body');
 const app = document.getElementById('app');
 
 body.insertAdjacentHTML('beforebegin', headerNavigation());
-app.innerHTML = render();
+app.innerHTML = displayLandArea();
 
 
 const landAreaNav = document.getElementById('land-area-nav');
@@ -21,26 +21,26 @@ const btn = document.getElementById('btn');
 
 
 landAreaNav.style.backgroundColor = '#f1f1f1';
-btn.addEventListener('click', displayLandArea);
+btn.addEventListener('click', calculateLandArea);
 
 function switchEventHandler() {
     // Remove the first event handler
-   if (btn.addEventListener('click', displayLandArea)) {
-        btn.removeEventListener("click", displaySoilVolume);
+   if (btn.addEventListener('click', calculateLandArea)) {
+        btn.removeEventListener("click", calculateSoilVolume);
    }
     
     // Add the second event handler
-    if (btn.addEventListener('click', displaySoilVolume)) {
-        btn.removeEventListener("click", displayLandArea);
+    if (btn.addEventListener('click', calculateSoilVolume)) {
+        btn.removeEventListener("click", calculateLandArea);
    }
 };
 
 function renderLandArea () {
-    if (app.innerHTML = render2() && app.innerHTML != render()){
-        app.innerHTML = render();
+    if (app.innerHTML = displaySoilVolume() && app.innerHTML != displayLandArea()){
+        app.innerHTML = displayLandArea();
         landAreaNav.style.backgroundColor = '#f1f1f1';
         soilVolumeNav.style.backgroundColor = '';
-        btn.addEventListener('click', displayLandArea);
+        btn.addEventListener('click', calculateLandArea);
         switchEventHandler();
     }
     landAreaNav.removeEventListener('click', renderSoilVolume);
@@ -48,8 +48,8 @@ function renderLandArea () {
  };
  
 function renderSoilVolume () {
-    if (app.innerHTML = render() && app.innerHTML != render2()){
-        app.innerHTML = render2();
+    if (app.innerHTML = displayLandArea() && app.innerHTML != displaySoilVolume()){
+        app.innerHTML = displaySoilVolume();
         soilVolumeNav.style.backgroundColor = '#f1f1f1';
         landAreaNav.style.backgroundColor = '';
         btn.addEventListener('click', displaySoilVolume);
