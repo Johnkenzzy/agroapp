@@ -5,7 +5,8 @@ export function displaySoilVolume () {
       </div>
       <div class="input-output-container">
         <main class="input-container soil-volume" id="soil-volume-input-container">
-          <div name="form" class="form" id="soil-volume-calcuator">
+          <div class="form" id="soil-volume-calcuator">
+            <legend><i>Please fill out all parameters!</i></legend>
             <div class="form-input-section" id="soil-volume-input">
               <legend class="input-tag" id="lengthLabel">Length</legend>
               <input class="input" type="number" name="length" id="length" pattern="[0-9]" min="0" autofocus required />
@@ -66,10 +67,8 @@ export function displaySoilVolume () {
  
      let volume;
  
-     console.log(length + "," + width + ", " + paraUnit);
      //Ensure parameters input boxes are not empty
      if (length === "" || width === "" || height === "") {
-         // calculatedVolume = "";
          paraUnit = "";
          volume = 0;
          const popMessage = "Enter valid parameters";
@@ -79,7 +78,7 @@ export function displaySoilVolume () {
         if (shape === "sq/rect") {
          volume = length * width * height;
         } if (shape === "triangle") {
-             volume = 0.5 * width * length * height;
+             volume = (0.5 * width * length) * height;
         }
      }
  
@@ -113,10 +112,8 @@ export function displaySoilVolume () {
          paraUnit;
      };
  
-      console.log(volume + ", " + paraUnit + "," + conversion)
-     
       //UI outputs
-     const outputText = `The area of the land is:\n\n ${zeroPad(volume, 2)} ${paraUnit} `
+     const outputText = `The Soil Volume is:\n\n ${volume} ${paraUnit} `
      const output = document.getElementById('output');
      output.innerText = outputText;
      calculatedVolume.value = volume;

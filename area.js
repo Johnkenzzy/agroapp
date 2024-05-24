@@ -5,7 +5,8 @@ export function displayLandArea () {
       </div>
       <div class="input-output-container">
         <main class="input-container land-area" id="land-area-input-container">
-          <div name="form" class="form" id="land-area-calcuator">
+          <div class="form" id="land-area-calcuator">
+            <legend><i>Please fill out all parameters!</i></legend>
             <div class="form-input-section" id="land-area-input">
               <legend class="input-tag" id="lengthLabel">Length</legend>
               <input class="input" type="number" name="length" id="length" pattern="[0-9]" min="0" autofocus required />
@@ -38,7 +39,7 @@ export function displayLandArea () {
                 <option class="dropdown-content" value="sq/rect">square / rectangular</option>
                 <option class="dropdown-content" value="triangle">triangular</option>
               </select>
-            </div id=btn-container>
+            </div >
             <button class="submit-btn" id="btn">RUN</button>
           </div>
         </main>
@@ -50,17 +51,6 @@ export function displayLandArea () {
   
       return displayHTML;
   }
-
-
-  // Variables initialization
-  const length = document.getElementById('length');
-  const width =   document.getElementById('width');
-  const calculatedArea = document.getElementById('area');
-  let paraUnit = document.getElementById('parameter-unit');
-  const conversion = document.getElementById('unit-conversion');
-  const  shape = document.getElementById('land-shape');    
-
-
 
 
 function zeroPad(number, length) {
@@ -76,43 +66,17 @@ function zeroPad(number, length) {
     return str;
   }
 
-  function unitConversion(parameter) {
-
-    if (paraUnit === "millimeter square" && conversion === "mm - cm") {
-    parameter = parameter / 10;
-      paraUnit = "centimeter square";
-  }else if (paraUnit === "centimeter square" && conversion === "cm - mm") {
-    parameter = parameter * 10;
-      paraUnit = "millimeter square";
-  }else if (paraUnit === "millimeter square" && conversion === "mm - m") {
-      parameter = parameter / 1000;
-      paraUnit = "square meter";
-  }else if (paraUnit === "square meter" && conversion === "m - mm") {
-      parameter = parameter * 1000;
-      paraUnit = "millimeter square";
-  }else if (paraUnit === "centimeter square" && conversion === "cm - m") {
-      parameter = parameter / 100;
-      paraUnit = "sqaure meter";
-  }else if (paraUnit === "square meter" && conversion === "m - cm") {
-      parameter = parameter * 100;
-      paraUnit = "centimeter square";
-  }else if (paraUnit === "square feet" && conversion === "ft - m") {
-      parameter = parameter / 3.2;
-      paraUnit = "square meter";
-  }else if (paraUnit === "square meter" && conversion === "m - ft") {
-      parameter = parameter * 3.2;
-      paraUnit = "square feet";  
-  }else {
-      parameter;
-      paraUnit;
-  };
-  }
-
 export function calculateLandArea() {
+    // Variables initialization
+    const length = document.getElementById('length').value;
+    const width =   document.getElementById('width').value;
+    const calculatedArea = document.getElementById('area');
+    let paraUnit = document.getElementById('parameter-unit').value;
+    const conversion = document.getElementById('unit-conversion').value;
+    const  shape = document.getElementById('land-shape').value;  
 
     let area;
 
-    console.log(length + "," + width + ", " + paraUnit);
     //Ensure parameters input boxes are not empty
     if (length === "" || width === "") {
         // calculatedArea = "";
@@ -123,19 +87,44 @@ export function calculateLandArea() {
     }else {
         // Area calculation formular
        if (shape === "sq/rect") {
-        area = length * width;
+          area = length * width;
        } if (shape === "triangle") {
             area = 0.5 * width * length;
        }
     }
 
     //Units convertion
-    unitConversion(area);
-    
-     console.log(area + ", " + paraUnit + "," + conversion)
+    if (paraUnit === "millimeter square" && conversion === "mm - cm") {
+        area = area / 10;
+        paraUnit = "centimeter square";
+    }else if (paraUnit === "centimeter square" && conversion === "cm - mm") {
+      area = area * 10;
+        paraUnit = "millimeter square";
+    }else if (paraUnit === "millimeter square" && conversion === "mm - m") {
+        area = area / 1000;
+        paraUnit = "square meter";
+    }else if (paraUnit === "square meter" && conversion === "m - mm") {
+        area = area * 1000;
+        paraUnit = "millimeter square";
+    }else if (paraUnit === "centimeter square" && conversion === "cm - m") {
+        area = area / 100;
+        paraUnit = "sqaure meter";
+    }else if (paraUnit === "square meter" && conversion === "m - cm") {
+        area = area * 100;
+        paraUnit = "centimeter square";
+    }else if (paraUnit === "square feet" && conversion === "ft - m") {
+        area = area / 3.2;
+        paraUnit = "square meter";
+    }else if (paraUnit === "square meter" && conversion === "m - ft") {
+        area = area * 3.2;
+        paraUnit = "square feet";  
+    }else {
+        area;
+        paraUnit;
+    };
     
      //UI outputs
-    const outputText = `The area of the land is:\n\n ${zeroPad(area, 2)} ${paraUnit}`;
+    const outputText = `The Land Area is:\n\n ${zeroPad(area, 2)} ${paraUnit}`;
     const output = document.getElementById('output');
     output.innerText = outputText;
     calculatedArea.value = area;
